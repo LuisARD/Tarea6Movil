@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>wordpress</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <ion-card *ngFor="let noticia of noticias">
+      <ion-card-header>
+        <ion-card-title>{{ noticia.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ noticia.subtitulo }}</ion-card-subtitle>
+      </ion-card-header>
+  
+      <ion-card-content [innerHTML]="noticia.desarrollo"></ion-card-content>
+    </ion-card>
+  </ion-content>
+  
+</ion-content>

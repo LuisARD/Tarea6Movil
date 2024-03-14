@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>madurez</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+    <ion-input label="Ingrese su nombre" [(ngModel)]="name" label-placement="floating" fill="solid" placeholder="Ingresa el nombre">
+    </ion-input>
+    </ion-card-content>
+  <ion-button (click)="getAgeInfo(name)" fill="outline">Generar</ion-button>
+  </ion-card>
+
+ <ion-card *ngIf="ageInfo">
+    <ion-card-header>
+      <ion-card-title>Edad Estimada: {{ ageInfo.age }}</ion-card-title>
+      <ion-card-subtitle>Cuenta: {{ ageInfo.count }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+  <ion-card-content>
+ <div *ngIf="ageInfo.age <= 15">
+    <img src="assets/imagen1.jpeg" alt="Imagen para edad <= 15">
+  </div>
+
+  <div *ngIf="ageInfo.age > 15 && ageInfo.age <= 26">
+    <img src="assets/imagen2.jpeg" alt="Imagen para edad > 15 y <= 26">
+  </div>
+
+  <div *ngIf="ageInfo.age > 26 && ageInfo.age <= 39">
+    <img src="assets/imagen3.jpeg" alt="Imagen para edad > 26 y <= 39">
+  </div>
+
+  <div *ngIf="ageInfo.age > 39 && ageInfo.age <= 59">
+    <img src="assets/imagen4.jpeg" alt="Imagen para edad > 39 y <= 59">
+  </div>
+
+  <div *ngIf="ageInfo.age > 59">
+    <img src="assets/imagen5.jpeg" alt="Imagen para edad > 59">
+  </div>
+  </ion-card-content>
+  </ion-card>
+</ion-content>

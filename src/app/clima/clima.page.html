@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+      <ion-label position="stacked">City Name</ion-label>
+      <ion-input [(ngModel)]="cityName" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="searchWeather()">Search</ion-button>
+  
+    <div *ngIf="weatherData">
+      <h2>Main:</h2>
+      <p>Temperature: {{ weatherData.main.temp }}</p>
+      <p>Feels Like: {{ weatherData.main.feels_like }}</p>
+      <p>Pressure: {{ weatherData.main.pressure }}</p>
+      <p>Humidity: {{ weatherData.main.humidity }}</p>
+  
+      <h2>Sys:</h2>
+      <p>Country: {{ weatherData.sys.country }}</p>
+      <p>Sunrise: {{ formatDate(weatherData.sys.sunrise) }}</p>
+      <p>Sunset: {{ formatDate(weatherData.sys.sunset) }}</p>
+</div>
+
+ </ion-content>
